@@ -7,6 +7,7 @@ const fs = require("fs");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "index.thml");
 const generateTeam = require("./src/template.js")
+const jest = require("jest");
 
 teamArray = [];
 
@@ -149,5 +150,7 @@ function runApp () {
       }
       
       createTeam();
+
+    
       
       runApp();
