@@ -18,15 +18,15 @@ teamArray = [];
       type: "list",
       message: "What type of employee are you wanting to add to your team?",
       name: "addEmployeePrompt",
-      choices: ["Manager", "Engineer", "Intern", "Your team is at capacity"]
+      choices: ["Manager", "Engineer", "Intern"]
     }]).then(function (userInput) {
       switch (userInput.addEmployeePrompt) {
         case "Manager":
           addManager();
-          
+          break;
         case "Engineer":
           addEngineer();
-          
+          break;
         case "Intern":
           addIntern();
 
