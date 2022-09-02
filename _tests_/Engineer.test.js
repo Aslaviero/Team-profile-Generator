@@ -1,14 +1,19 @@
 const Engineer = require("../lib/Engineer");
 
-test("Can create an office number.", () => {
-    const testNumber = 2;
-    const newEmployee = new Engineer("Luke Skywalker", 2, "Jabasmells@starwars.com", testOfficeNumber);
-    expect(newEmployee.officeNumber).toBe(testNumber);
-});
+test("Testing name.", () => {
+    const name = "Leia Organa";
+    const newEmployee = new Engineer(name);
+    expect(newEmployee.name).toBe(name);
+})
 
+test("Testing ID.", () => {
+    const id = 2;
+    const newEmployee = new Engineer("Leia Organa", id);
+    expect(newEmployee.id).toBe(id);
+})
 
-test("Testing role.", () => {
-    const returnValue = "Manager";
-    const newEmployee = new Engineer("Luke Skywalker", 2, "Jabasmells@starwars.com", 2);
-    expect(newEmployee.getRole()).toBe(returnValue);
+test("Testing email.", () => {
+    const email = "princessleia@starwars.com";
+    const newEmployee = new Engineer("Leia Organa", 2, email);
+    expect(newEmployee.email).toBe(email);
 });

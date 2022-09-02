@@ -1,3 +1,4 @@
+// calling in all other files
 const Manager = require("./lib/Manager.js");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "index.thml");
@@ -6,12 +7,12 @@ const path = require("path");
 const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
 const inquirer = require("inquirer");
-const fs = require("fs");
+const fs = require("fs")
 
 teamArray = [];
 
 
-
+// Function to create questionnaire prompt
   function createTeam() {
     inquirer.prompt([{
       type: "list",
@@ -29,13 +30,11 @@ teamArray = [];
         case "Intern":
           addIntern();
 
-        default:
-          htmlBuilder();
       }
     })
 }
 
-
+// Questions for new employees
 function addManager() {
   inquirer.prompt([
 
@@ -141,7 +140,7 @@ function addIntern() {
   });
 
 }
-
+// Creating new html file with the new team
 function htmlBuilder() {
   console.log("New Team Created!!!")
 

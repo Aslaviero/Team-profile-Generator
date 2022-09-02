@@ -1,13 +1,19 @@
 const Manager = require("../lib/Manager");
 
-test("Creating a number.", () => {
-    const testNumber = 2;
-    const newEmployee = new Manager("Han Solo", 2, "Jabasmells@starwars.com", testNumber);
-    expect(newEmployee.officeNumber).toBe(testNumber);
-});
+test("Testing name.", () => {
+    const name = "Han Solo";
+    const newEmployee = new Manager(name);
+    expect(newEmployee.name).toBe(name);
+})
 
-test("Testing role.", () => {
-    const returnValue = "Manager";
-    const newEmployee = new Manager("Han Solo", 2, "Jabasmells@starwars.com", 2);
-    expect(newEmployee.getRole()).toBe(returnValue);
+test("Testing ID.", () => {
+    const id = 2;
+    const newEmployee = new Manager("Han Solo", id);
+    expect(newEmployee.id).toBe(id);
+})
+
+test("Testing email.", () => {
+    const email = "Jabasmells@starwars.com";
+    const newEmployee = new Manager("Han Solo", 2, email);
+    expect(newEmployee.email).toBe(email);
 });
