@@ -1,19 +1,20 @@
 const Intern = require("../lib/Intern");
 
-test("Can create school.", () => {
-    const testSchool = "School Name";
-    const employeeInstance = new Intern("Chewbacca", 2, "Hairywookieiam@starwars.com", testSchool);
-    expect(employeeInstance.school).toBe(testSchool);
+test("Testing officeNumber", () => {
+    const officeNumber = "Number";
+    const newEmployee = new Intern("Chewbaca", 2, "Hairywookieiam@starwars.com", officeNumber);
+    expect(newEmployee.officeNumber()).toBe(officeNumber);
 });
 
-test("Testing officeNumber will return office number.", () => {
+
+test("Testing school.", () => {
     const testSchool = "School Name";
-    const employeeInstance = new Intern("Chewbacca", 2, "Hairywookieiam@starwars.com", testSchool);
-    expect(employeeInstance.getSchool()).toBe(testSchool);
+    const newEmployee = new Intern("Chewbacca", 2, "Hairywookieiam@starwars.com", testSchool);
+    expect(newEmployee.school).toBe(testSchool);
 });
 
 test("Testing role.", () => {
     const returnValue = "Intern";
-    const employeeInstance = new Intern("Chewbacca", 2, "Hairywookieiam@starwars.com", "School Name");
-    expect(employeeInstance.getRole()).toBe(returnValue);
+    const newEmployee = new Intern("Chewbacca", 2, "Hairywookieiam@starwars.com", "School Name");
+    expect(newEmployee.getRole()).toBe(returnValue);
 });

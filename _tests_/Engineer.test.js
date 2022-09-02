@@ -1,21 +1,14 @@
+const Engineer = require("../lib/Engineer");
 
-const { Engineer } = require('../lib/Engineer');
+test("Can create an office number.", () => {
+    const testNumber = 2;
+    const newEmployee = new Engineer("Luke Skywalker", 2, "Jabasmells@starwars.com", testOfficeNumber);
+    expect(newEmployee.officeNumber).toBe(testNumber);
+});
 
-test('Creates new Engineer', () => {
-  const employee = new Engineer('John Smith', 1234, 'john@smith.com', 'john-smith');
 
-  expect(employee.name).toBe("John Smith");
-  expect(employee.id).toEqual(expect.any(Number));
-  expect(employee.email).toEqual(expect.any(String));
-  expect(employee.github).toEqual(expect.any(String));
-})
-
-test('Checks all methods for Engineer class', () => {
-  const employee = new Engineer('John Smith', 1234, 'john@smith.com', 'john-smith');
-
-  expect(employee.getName()).toBe(employee.name);
-  expect(employee.getId()).toBe(employee.id);
-  expect(employee.getEmail()).toBe(employee.email);
-  expect(employee.getGithub()).toBe(employee.github);
-  expect(employee.getRole()).toBe('Engineer');
-})
+test("Testing role.", () => {
+    const returnValue = "Manager";
+    const newEmployee = new Engineer("Luke Skywalker", 2, "Jabasmells@starwars.com", 2);
+    expect(newEmployee.getRole()).toBe(returnValue);
+});

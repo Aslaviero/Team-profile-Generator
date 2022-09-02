@@ -2,9 +2,9 @@ header {
     background-color: black;
     border: solid yellow;
     text-align: center;
-    color: yellow;
     padding: 25px;
     margin-bottom: 12px;
+    color: yellow;
 }
 
 body {
@@ -16,6 +16,11 @@ body {
     padding:5px;
     margin-top: 200px;
     margin-right: 180;
+}
+
+.card-header {
+    background-image: url(https://cdn.wallpapersafari.com/1/97/co341S.jpg);
+    color: yellow;
 }
 
 

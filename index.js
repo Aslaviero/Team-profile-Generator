@@ -1,12 +1,12 @@
 const Manager = require("./lib/Manager.js");
-const Engineer = require("./lib/Engineer.js");
-const Intern = require("./lib/Intern.js");
-const inquirer = require("inquirer");
-const path = require("path");
-const fs = require("fs");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "index.thml");
 const generateTeam = require("./src/template.js")
+const path = require("path");
+const Engineer = require("./lib/Engineer.js");
+const Intern = require("./lib/Intern.js");
+const inquirer = require("inquirer");
+const fs = require("fs");
 
 teamArray = [];
 
@@ -15,20 +15,19 @@ teamArray = [];
   function createTeam() {
     inquirer.prompt([{
       type: "list",
-      message: "What type of employee would you like to add to your team?",
+      message: "What type of employee are you wanting to add to your team?",
       name: "addEmployeePrompt",
-      choices: ["Manager", "Engineer", "Intern", "No more team members are needed."]
+      choices: ["Manager", "Engineer", "Intern", "Your team is at capacity"]
     }]).then(function (userInput) {
       switch (userInput.addEmployeePrompt) {
         case "Manager":
           addManager();
-          break;
+          
         case "Engineer":
           addEngineer();
-          break;
+          
         case "Intern":
           addIntern();
-          break;
 
         default:
           htmlBuilder();
@@ -65,7 +64,7 @@ function addManager() {
     }
 
   ]).then(answers => {
-    const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
+    const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficenumber);
     teamArray.push(manager);
     createTeam();
   });
@@ -79,25 +78,25 @@ function addEngineer() {
     {
       type: "input",
       name: "engineerName",
-      message: "What is the engineer's name?"
+      message: "What is the name of the engineer?"
     },
 
     {
       type: "input",
       name: "engineerId",
-      message: "What is the engineer's employee ID number?"
+      message: "What is the engineer's employee ID?"
     },
 
     {
       type: "input",
       name: "engineerEmail",
-      message: "What is the engineer's email address?"
+      message: "What is the engineer's email?"
     },
 
     {
       type: "input",
       name: "engineerGithub",
-      message: "What is the engineer's GitHub username?"
+      message: "What the engineers github?"
     }
 
   ]).then(answers => {
@@ -114,25 +113,25 @@ function addIntern() {
     {
       type: "input",
       name: "internName",
-      message: "What is the intern's name?"
+      message: "What is the name of the intern?"
     },
 
     {
       type: "input",
       name: "internId",
-      message: "What is the intern's employee ID number?"
+      message: "What is their intern's ID number?"
     },
 
     {
       type: "input",
       name: "internEmail",
-      message: "What is the intern's email address?"
+      message: "What is the intern's email?"
     },
 
     {
       type: "input",
       name: "internSchool",
-      message: "What school does the intern attend?"
+      message: "What school does the intern go to?"
     }
 
   ]).then(answers => {
@@ -144,7 +143,7 @@ function addIntern() {
 }
 
 function htmlBuilder() {
-  console.log("Team created!")
+  console.log("New Team Created!!!")
 
   fs.writeFileSync(outputPath, generateTeam(teamArray), "UTF-8")
 }
